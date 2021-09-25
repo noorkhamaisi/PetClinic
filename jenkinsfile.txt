@@ -8,6 +8,7 @@ pipeline {
 		 script {
            		"./mvnw package"
 		}
+			echo "hhhh"
             }
         }
     }
