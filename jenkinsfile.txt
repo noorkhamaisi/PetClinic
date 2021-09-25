@@ -4,10 +4,12 @@ pipeline {
         stage('build') {
             steps {
              git branch: 'main' , url: 'https://github.com/spring-projects/spring-petclinic'
+		 echo "hhbbbbbbbbhh"
 		 sh 'cd spring-petclinic'
+		 echo "hhhh"
 		 script {
            		"./mvnw package"
-			echo "hhhh"
+			
 		}
 			
             }
