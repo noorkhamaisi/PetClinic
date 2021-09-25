@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "hhhhh"
+               git clone https://github.com/spring-projects/spring-petclinic.git
+		cd spring-petclinic
+		./mvnw package
             }
         }
     }
