@@ -1,12 +1,19 @@
+String branchName = env.BRANCH_NAME
+String gitCredentials = "CREDENTIAL_ID"
+String repoUrl = "https://github.com/spring-projects/spring-petclinic.git"
+
 pipeline {
     agent { label 'firstSlave' }
     stages {
-        stage('build') {
-            steps {
-               git clone https://github.com/spring-projects/spring-petclinic.git
-		cd spring-petclinic
-		./mvnw package
-            }
+       stage('Clone') {
+      // Clones the repository from the current branch name
+      echo 'Make the output directory'
+      sh 'mkdir -p build'
+
+      echo 'Cloning files from (branch: "' + branchName + '" )'
+      dir('build') {
+          git branch: branchName, credentialsId: 	gitCredentials, url: repoUrl
+      }     
         }
     }
 }
