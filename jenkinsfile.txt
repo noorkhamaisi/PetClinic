@@ -7,8 +7,9 @@ pipeline {
 		 sh 'cd spring-petclinic'
 		 script {
            		"./mvnw package"
-		}
 			echo "hhhh"
+		}
+			
             }
         }
     }
